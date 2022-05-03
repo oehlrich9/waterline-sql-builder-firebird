@@ -14,7 +14,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'insert into "books" ("title") values ($1) returning "author"');
+      assert.equal(result.sql, 'insert into books (title) values (?) returning author');
       assert.deepEqual(result.bindings, ['Slaughterhouse Five']);
     });
 
@@ -29,7 +29,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'insert into "books" ("author", "title") values ($1, $2) returning "author", "title"');
+      assert.equal(result.sql, 'insert into books (author, title) values (?, ?) returning author, title');
       assert.deepEqual(result.bindings, ['Kurt Vonnegut', 'Slaughterhouse Five']);
     });
 
@@ -44,7 +44,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'insert into "books" ("author", "title") values ($1, $2) returning *');
+      assert.equal(result.sql, 'insert into books (author, title) values (?, ?) returning *');
       assert.deepEqual(result.bindings, ['Kurt Vonnegut', 'Slaughterhouse Five']);
     });
   });

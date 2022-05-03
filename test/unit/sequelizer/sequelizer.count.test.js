@@ -11,7 +11,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select count(*) from "users"');
+      assert.equal(result.sql, 'select   count(*) from users');
     });
   });
 });

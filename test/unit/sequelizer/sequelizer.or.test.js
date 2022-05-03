@@ -21,7 +21,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "id" > $1 or "name" = $2');
+      assert.equal(result.sql, 'select   * from users where id > ? or name = ?');
       assert.deepEqual(result.bindings, ['10', 'Tester']);
     });
 
@@ -45,7 +45,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where ("id" = $1 or "id" > $2) or "name" = $3');
+      assert.equal(result.sql, 'select   * from users where (id = ? or id > ?) or name = ?');
       assert.deepEqual(result.bindings, ['1', '10', 'Tester']);
     });
 
@@ -89,7 +89,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where ("firstName" like $1 and "type" = $2) or ("firstName" like $3 and "age" > $4 and "type" = $5)');
+      assert.equal(result.sql, 'select   * from users where (firstName like ? and type = ?) or (firstName like ? and age > ? and type = ?)');
       assert.deepEqual(result.bindings, ['%user0%', 'or test', '%user1', '0', 'or test']);
     });
 
@@ -114,7 +114,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "inviteStatus" = $1 and (("entityId" = $2 and "inviteType" = $3) or ("entityId" in ($4) and "inviteType" = $5))');
+      assert.equal(result.sql, 'select   * from users where inviteStatus = ? and ((entityId = ? and inviteType = ?) or (entityId in (?) and inviteType = ?))');
       assert.deepEqual(result.bindings, ['pending', '1', 'globalAdmin', '1', 'localAdmin']);
     });
 
@@ -139,7 +139,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "inviteStatus" = $1 and (("entityId" = $2 and "inviteType" = $3) or ("entityId" not in ($4) and "inviteType" = $5))');
+      assert.equal(result.sql, 'select   * from users where inviteStatus = ? and ((entityId = ? and inviteType = ?) or (entityId not in (?) and inviteType = ?))');
       assert.deepEqual(result.bindings, ['pending', '1', 'globalAdmin', '1', 'localAdmin']);
     });
 
@@ -192,7 +192,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where ("lastName" = $1 and ("age" <= $2 or "type" = $3)) or ("lastName" = $4 and ("type" = $5 or "firstName" like $6))');
+      assert.equal(result.sql, 'select   * from users where (lastName = ? and (age <= ? or type = ?)) or (lastName = ? and (type = ? or firstName like ?))');
       assert.deepEqual(result.bindings, ['smith', 7, 'even', 'jones', 'odd', '%6%']);
     });
 
@@ -244,7 +244,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where ("lastName" = $1 and ("age" <= $2 or "type" = $3)) or ("lastName" = $4 and ("type" = $5 or ("firstName" like $6 and "firstName" like $7)))');
+      assert.equal(result.sql, 'select   * from users where (lastName = ? and (age <= ? or type = ?)) or (lastName = ? and (type = ? or (firstName like ? and firstName like ?)))');
       assert.deepEqual(result.bindings, ['smith', 7, 'even', 'jones', 'odd', '%6%', '%nested']);
     });
 
@@ -301,7 +301,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where ("lastName" = $1 and ("age" <= $2 or "type" = $3)) or ("lastName" = $4 and ("type" = $5 or ("firstName" like $6 and ("age" = $7 or "age" < $8))))');
+      assert.equal(result.sql, 'select   * from users where (lastName = ? and (age <= ? or type = ?)) or (lastName = ? and (type = ? or (firstName like ? and (age = ? or age < ?))))');
       assert.deepEqual(result.bindings, ['smith', 7, 'even', 'jones', 'odd', '%6%', 1, 2]);
     });
   });

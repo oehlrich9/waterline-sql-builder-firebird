@@ -12,7 +12,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" limit $1');
+      assert.equal(result.sql, 'select first ?  * from users');
       assert.deepEqual(result.bindings, ['10']);
     });
   });

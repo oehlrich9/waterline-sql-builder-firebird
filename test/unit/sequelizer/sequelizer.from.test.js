@@ -11,7 +11,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "books"');
+      assert.equal(result.sql, 'select   * from books');
     });
   });
 });

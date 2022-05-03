@@ -18,7 +18,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "updatedAt" is null');
+      assert.equal(result.sql, 'select   * from users where updatedAt is null');
     });
   });
 });

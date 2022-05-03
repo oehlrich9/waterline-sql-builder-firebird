@@ -25,7 +25,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "name" like $1 or "id" not in ($2, $3, $4)');
+      assert.equal(result.sql, 'select   * from users where name like ? or id not in (?, ?, ?)');
       assert.deepEqual(result.bindings, ['%Test%', '1', '2', '3']);
     });
 
@@ -50,7 +50,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "id" from "users" where "firstName" != $1 and "lastName" != $2');
+      assert.equal(result.sql, 'select   id from users where firstName != ? and lastName != ?');
       assert.deepEqual(result.bindings, ['Test', 'User']);
     });
 
@@ -84,7 +84,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where ("id" != $1 or "id" < $2) or "name" != $3');
+      assert.equal(result.sql, 'select   * from users where (id != ? or id < ?) or name != ?');
       assert.deepEqual(result.bindings, ['1', '10', 'Tester']);
     });
 
@@ -109,7 +109,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "id" from "users" where "firstName" is not null and "lastName" != $1');
+      assert.equal(result.sql, 'select   id from users where firstName is not null and lastName != ?');
       assert.deepEqual(result.bindings, ['User']);
     });
 
@@ -135,7 +135,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "name" = $1 or ("votes" > $2 and "title" != $3)');
+      assert.equal(result.sql, 'select   * from users where name = ? or (votes > ? and title != ?)');
       assert.deepEqual(result.bindings, ['John', '100', 'Admin']);
     });
   });

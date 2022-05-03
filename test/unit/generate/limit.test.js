@@ -11,28 +11,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select "id" from "users" limit $1',
-            bindings: ['10']
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select `id` from `users` limit ?',
-            bindings: ['10']
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select "id" from "users" limit ?',
-            bindings: ['10']
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select * from (select "id" from "users") where rownum <= :1',
-            bindings: ['10']
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select `id` from `users` limit ?',
+            dialect: 'firebird',
+            sql: 'select first ?  id from users',
             bindings: ['10']
           }
         ]

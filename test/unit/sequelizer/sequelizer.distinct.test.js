@@ -13,7 +13,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select distinct "firstName", "lastName" from "customers"');
+      assert.equal(result.sql, 'select   distinct firstName, lastName from customers');
     });
   });
 });

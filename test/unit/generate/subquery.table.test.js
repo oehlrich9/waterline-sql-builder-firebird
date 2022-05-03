@@ -22,28 +22,8 @@ describe('Query Generation ::', function() {
           },
           outcomes: [
             {
-              dialect: 'postgresql',
-              sql: 'select "name", "age" from (select "age" from "users" where "age" = $1) as "userage"',
-              bindings: [21]
-            },
-            {
-              dialect: 'mysql',
-              sql: 'select `name`, `age` from (select `age` from `users` where `age` = ?) as `userage`',
-              bindings: [21]
-            },
-            {
-              dialect: 'sqlite3',
-              sql: 'select "name", "age" from (select "age" from "users" where "age" = ?) as "userage"',
-              bindings: [21]
-            },
-            {
-              dialect: 'oracle',
-              sql: 'select "name", "age" from (select "age" from "users" where "age" = :1) "userage"',
-              bindings: [21]
-            },
-            {
-              dialect: 'mariadb',
-              sql: 'select `name`, `age` from (select `age` from `users` where `age` = ?) as `userage`',
+              dialect: 'firebird',
+              sql: 'select   name, age from (select   age from users where age = ?) as userage',
               bindings: [21]
             }
           ]

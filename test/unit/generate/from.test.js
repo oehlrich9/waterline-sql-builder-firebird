@@ -10,28 +10,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select * from "books"',
-            bindings: []
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select * from `books`',
-            bindings: []
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select * from "books"',
-            bindings: []
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select * from "books"',
-            bindings: []
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select * from `books`',
+            dialect: 'firebird',
+            sql: 'select   * from books',
             bindings: []
           }
         ]

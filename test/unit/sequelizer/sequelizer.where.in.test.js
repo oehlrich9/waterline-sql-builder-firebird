@@ -20,7 +20,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "name" from "users" where "id" in ($1, $2, $3)');
+      assert.equal(result.sql, 'select   name from users where id in (?, ?, ?)');
       assert.deepEqual(result.bindings, ['1', '2', '3']);
     });
 
@@ -45,7 +45,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "name" from "users" where "id" in ($1, $2, $3) or "id" in ($4, $5, $6)');
+      assert.equal(result.sql, 'select   name from users where id in (?, ?, ?) or id in (?, ?, ?)');
       assert.deepEqual(result.bindings, ['1', '2', '3', '4', '5', '6']);
     });
   });

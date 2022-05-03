@@ -30,7 +30,7 @@ describe('Sequelizer ::', function() {
         });
 
         var result = Sequelizer(tree);
-        assert.equal(result.sql, 'select * from "accounts" where "id" in (select "id" from "users" where "status" = $1 or "name" = $2)');
+        assert.equal(result.sql, 'select   * from accounts where id in (select   id from users where status = ? or name = ?)');
         assert.deepEqual(result.bindings, ['active', 'John']);
       });
 
@@ -59,7 +59,7 @@ describe('Sequelizer ::', function() {
         });
 
         var result = Sequelizer(tree);
-        assert.equal(result.sql, 'select * from "accounts" where "id" not in (select "id" from "users" where "status" = $1 or "name" = $2)');
+        assert.equal(result.sql, 'select   * from accounts where id not in (select   id from users where status = ? or name = ?)');
         assert.deepEqual(result.bindings, ['active', 'John']);
       });
     });
@@ -82,7 +82,7 @@ describe('Sequelizer ::', function() {
         });
 
         var result = Sequelizer(tree);
-        assert.equal(result.sql, 'select "name", (select "username" from "users" where "status" = $1 or "name" = $2) as "username", "age" from "accounts"');
+        assert.equal(result.sql, 'select   name, (select   username from users where status = ? or name = ?) as username, age from accounts');
         assert.deepEqual(result.bindings, ['active', 'John']);
       });
 
@@ -106,7 +106,7 @@ describe('Sequelizer ::', function() {
         });
 
         var result = Sequelizer(tree);
-        assert.equal(result.sql, 'select "name", "age" from "accounts" where "username" = (select "username" from "users" where "color" = $1)');
+        assert.equal(result.sql, 'select   name, age from accounts where username = (select   username from users where color = ?)');
         assert.deepEqual(result.bindings, ['accounts.color']);
       });
     });
@@ -130,7 +130,7 @@ describe('Sequelizer ::', function() {
         });
 
         var result = Sequelizer(tree);
-        assert.equal(result.sql, 'select "name", "age" from (select "age" from "users" where "age" = $1) as "userage"');
+        assert.equal(result.sql, 'select   name, age from (select   age from users where age = ?) as userage');
         assert.deepEqual(result.bindings, [21]);
       });
     });

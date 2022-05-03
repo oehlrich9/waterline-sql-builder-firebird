@@ -19,7 +19,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" order by "name" desc, "age" asc');
+      assert.equal(result.sql, 'select   * from users order by name desc, age asc');
     });
   });
 });

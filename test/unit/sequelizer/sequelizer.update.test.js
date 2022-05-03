@@ -20,7 +20,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'update "books" set "status" = $1 where "publishedDate" > $2');
+      assert.equal(result.sql, 'update books set status = ? where publishedDate > ?');
       assert.deepEqual(result.bindings, ['archived', 2000]);
     });
 
@@ -43,8 +43,8 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'update "books" set "active" = $1, "status" = $2 where "publishedDate" > $3');
-      assert.deepEqual(result.bindings, [false, 'archived', 2000]);
+      assert.equal(result.sql, 'update books set status = ?, active = ? where publishedDate > ?');
+      assert.deepEqual(result.bindings, ['archived', false, 2000]);
     });
 
     it('should generate a query with a NULL value for input', function() {
@@ -56,7 +56,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'update "books" set "status" = $1');
+      assert.equal(result.sql, 'update books set status = ?');
       assert.deepEqual(result.bindings, [null]);
     });
   });

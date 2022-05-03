@@ -16,7 +16,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "updatedAt" is not null');
+      assert.equal(result.sql, 'select   * from users where updatedAt is not null');
     });
 
     it('should generate a query with a simple WHERE statement (group clause)', function() {
@@ -35,7 +35,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "updatedAt" is not null');
+      assert.equal(result.sql, 'select   * from users where updatedAt is not null');
     });
   });
 });

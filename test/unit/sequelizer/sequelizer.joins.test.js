@@ -20,7 +20,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "users"."id", "contacts"."phone" from "users" inner join "contacts" on "users"."id" = "contacts"."user_id"');
+      assert.equal(result.sql, 'select   users.id, contacts.phone from users inner join contacts on users.id = contacts.user_id');
     });
 
     it('should generate a query when a multiple JOIN statements are added', function() {
@@ -46,7 +46,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "users"."id", "contacts"."phone", "carriers"."name" from "users" inner join "contacts" on "users"."id" = "contacts"."user_id" inner join "carriers" on "users"."id" = "carriers"."user_id"');
+      assert.equal(result.sql, 'select   users.id, contacts.phone, carriers.name from users inner join contacts on users.id = contacts.user_id inner join carriers on users.id = carriers.user_id');
     });
 
     it('should generate a query when an INNERJOIN statement is added', function() {
@@ -65,7 +65,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "users"."id", "contacts"."phone" from "users" inner join "contacts" on "users"."id" = "contacts"."user_id"');
+      assert.equal(result.sql, 'select   users.id, contacts.phone from users inner join contacts on users.id = contacts.user_id');
     });
 
     it('should generate a query when an OUTERJOIN statement is added', function() {
@@ -84,7 +84,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "users"."id", "contacts"."phone" from "users" outer join "contacts" on "users"."id" = "contacts"."user_id"');
+      assert.equal(result.sql, 'select   users.id, contacts.phone from users outer join contacts on users.id = contacts.user_id');
     });
 
     it('should generate a query when grouped OR joins are added', function() {
@@ -111,7 +111,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" inner join "accounts" on "accounts"."id" = "users"."account_id" or "accounts"."owner_id" = "users"."id"');
+      assert.equal(result.sql, 'select   * from users inner join accounts on accounts.id = users.account_id or accounts.owner_id = users.id');
     });
 
     it('should generate a query when grouped AND joins are added', function() {
@@ -136,7 +136,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" inner join "accounts" on "accounts"."id" = "users"."account_id" and "accounts"."owner_id" = "users"."id"');
+      assert.equal(result.sql, 'select   * from users inner join accounts on accounts.id = users.account_id and accounts.owner_id = users.id');
     });
 
     it('should generate a query when multiple grouped OR joins are added', function() {
@@ -178,7 +178,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" inner join "accounts" on "accounts"."id" = "users"."account_id" or "accounts"."owner_id" = "users"."id" inner join "carriers" on "carriers"."id" = "users"."account_id" or "carriers"."owner_id" = "users"."id"');
+      assert.equal(result.sql, 'select   * from users inner join accounts on accounts.id = users.account_id or accounts.owner_id = users.id inner join carriers on carriers.id = users.account_id or carriers.owner_id = users.id');
     });
   });
 });

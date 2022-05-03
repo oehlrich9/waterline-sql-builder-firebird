@@ -21,7 +21,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "firstName" = $1 and "lastName" = $2');
+      assert.equal(result.sql, 'select   * from users where firstName = ? and lastName = ?');
       assert.deepEqual(result.bindings, ['foo', 'bar']);
     });
 
@@ -60,7 +60,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where ("firstName" = $1 or "lastName" = $2) and ("qty" > $3 or "price" < $4)');
+      assert.equal(result.sql, 'select   * from users where (firstName = ? or lastName = ?) and (qty > ? or price < ?)');
       assert.deepEqual(result.bindings, ['John', 'Smith', '100', '10.01']);
     });
   });

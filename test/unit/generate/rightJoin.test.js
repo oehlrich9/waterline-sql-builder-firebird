@@ -19,28 +19,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select "users"."id", "contacts"."phone" from "users" right join "contacts" on "users"."id" = "contacts"."user_id"',
-            bindings: []
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select `users`.`id`, `contacts`.`phone` from `users` right join `contacts` on `users`.`id` = `contacts`.`user_id`',
-            bindings: []
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select "users"."id", "contacts"."phone" from "users" right join "contacts" on "users"."id" = "contacts"."user_id"',
-            bindings: []
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select "users"."id", "contacts"."phone" from "users" right join "contacts" on "users"."id" = "contacts"."user_id"',
-            bindings: []
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select `users`.`id`, `contacts`.`phone` from `users` right join `contacts` on `users`.`id` = `contacts`.`user_id`',
+            dialect: 'firebird',
+            sql: 'select   users.id, contacts.phone from users right join contacts on users.id = contacts.user_id',
             bindings: []
           }
         ]

@@ -29,28 +29,8 @@ describe('Query Generation ::', function() {
           },
           outcomes: [
             {
-              dialect: 'postgresql',
-              sql: 'select * from "accounts" where "id" in (select "id" from "users" where "status" = $1 or "name" = $2)',
-              bindings: ['active', 'John']
-            },
-            {
-              dialect: 'mysql',
-              sql: 'select * from `accounts` where `id` in (select `id` from `users` where `status` = ? or `name` = ?)',
-              bindings: ['active', 'John']
-            },
-            {
-              dialect: 'sqlite3',
-              sql: 'select * from "accounts" where "id" in (select "id" from "users" where "status" = ? or "name" = ?)',
-              bindings: ['active', 'John']
-            },
-            {
-              dialect: 'oracle',
-              sql: 'select * from "accounts" where "id" in (select "id" from "users" where "status" = :1 or "name" = :2)',
-              bindings: ['active', 'John']
-            },
-            {
-              dialect: 'mariadb',
-              sql: 'select * from `accounts` where `id` in (select `id` from `users` where `status` = ? or `name` = ?)',
+              dialect: 'firebird',
+              sql: 'select   * from accounts where id in (select   id from users where status = ? or name = ?)',
               bindings: ['active', 'John']
             }
           ]
@@ -83,28 +63,8 @@ describe('Query Generation ::', function() {
           },
           outcomes: [
             {
-              dialect: 'postgresql',
-              sql: 'select * from "accounts" where "id" not in (select "id" from "users" where "status" = $1 or "name" = $2)',
-              bindings: ['active', 'John']
-            },
-            {
-              dialect: 'mysql',
-              sql: 'select * from `accounts` where `id` not in (select `id` from `users` where `status` = ? or `name` = ?)',
-              bindings: ['active', 'John']
-            },
-            {
-              dialect: 'sqlite3',
-              sql: 'select * from "accounts" where "id" not in (select "id" from "users" where "status" = ? or "name" = ?)',
-              bindings: ['active', 'John']
-            },
-            {
-              dialect: 'oracle',
-              sql: 'select * from "accounts" where "id" not in (select "id" from "users" where "status" = :1 or "name" = :2)',
-              bindings: ['active', 'John']
-            },
-            {
-              dialect: 'mariadb',
-              sql: 'select * from `accounts` where `id` not in (select `id` from `users` where `status` = ? or `name` = ?)',
+              dialect: 'firebird',
+              sql: 'select   * from accounts where id not in (select   id from users where status = ? or name = ?)',
               bindings: ['active', 'John']
             }
           ]

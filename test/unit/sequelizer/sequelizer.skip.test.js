@@ -12,7 +12,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" offset $1');
+      assert.equal(result.sql, 'select  skip ? * from users');
       assert.deepEqual(result.bindings, ['10']);
     });
   });

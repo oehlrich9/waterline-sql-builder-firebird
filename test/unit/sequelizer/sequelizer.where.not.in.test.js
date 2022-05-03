@@ -20,7 +20,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "name" from "users" where "id" not in ($1, $2, $3)');
+      assert.equal(result.sql, 'select   name from users where id not in (?, ?, ?)');
       assert.deepEqual(result.bindings, ['1', '2', '3']);
     });
 
@@ -43,7 +43,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "name" from "users" where ("id" not in ($1, $2, $3) and "age" not in ($4, $5, $6))');
+      assert.equal(result.sql, 'select   name from users where (id not in (?, ?, ?) and age not in (?, ?, ?))');
       assert.deepEqual(result.bindings, ['1', '2', '3', '30', '40', '50']);
     });
 
@@ -68,7 +68,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "name" from "users" where "id" not in ($1, $2, $3) or "id" not in ($4, $5, $6)');
+      assert.equal(result.sql, 'select   name from users where id not in (?, ?, ?) or id not in (?, ?, ?)');
       assert.deepEqual(result.bindings, ['1', '2', '3', '4', '5', '6']);
     });
 
@@ -100,7 +100,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "name" from "users" where ("id" not in ($1, $2, $3) and "age" = $4) or "id" not in ($5, $6, $7)');
+      assert.equal(result.sql, 'select   name from users where (id not in (?, ?, ?) and age = ?) or id not in (?, ?, ?)');
       assert.deepEqual(result.bindings, ['1', '2', '3', '21', '4', '5', '6']);
     });
   });

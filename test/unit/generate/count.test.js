@@ -10,28 +10,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select count(*) from "users"',
-            bindings: []
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select count(*) from `users`',
-            bindings: []
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select count(*) from "users"',
-            bindings: []
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select count(*) from "users"',
-            bindings: []
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select count(*) from `users`',
+            dialect: 'firebird',
+            sql: 'select   count(*) from users',
             bindings: []
           }
         ]

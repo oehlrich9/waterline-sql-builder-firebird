@@ -17,28 +17,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'delete from "accounts" where "activated" = $1',
-            bindings: [false]
-          },
-          {
-            dialect: 'mysql',
-            sql: 'delete from `accounts` where `activated` = ?',
-            bindings: [false]
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'delete from "accounts" where "activated" = ?',
-            bindings: [false]
-          },
-          {
-            dialect: 'oracle',
-            sql: 'delete from "accounts" where "activated" = :1',
-            bindings: ['0']
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'delete from `accounts` where `activated` = ?',
+            dialect: 'firebird',
+            sql: 'delete from accounts where activated = ?',
             bindings: [false]
           }
         ]

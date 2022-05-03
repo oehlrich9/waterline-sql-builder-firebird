@@ -18,28 +18,8 @@ describe('Query Generation ::', function() {
           },
           outcomes: [
             {
-              dialect: 'postgresql',
-              sql: 'select * from "users" where "updatedAt" is null',
-              bindings: []
-            },
-            {
-              dialect: 'mysql',
-              sql: 'select * from `users` where `updatedAt` is null',
-              bindings: []
-            },
-            {
-              dialect: 'sqlite3',
-              sql: 'select * from "users" where "updatedAt" is null',
-              bindings: []
-            },
-            {
-              dialect: 'oracle',
-              sql: 'select * from "users" where "updatedAt" is null',
-              bindings: []
-            },
-            {
-              dialect: 'mariadb',
-              sql: 'select * from `users` where `updatedAt` is null',
+              dialect: 'firebird',
+              sql: 'select   * from users where updatedAt is null',
               bindings: []
             }
           ]
@@ -63,7 +43,7 @@ describe('Query Generation ::', function() {
               ]
             }
           },
-          outcome: 'select * from "users" where "updatedAt" is not null'
+          outcome: 'select   * from "users" where "updatedAt" is not null'
         }, done);
       });
     });

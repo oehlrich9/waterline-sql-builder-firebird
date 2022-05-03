@@ -24,28 +24,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select "id" from "users" where "firstName" != $1 and "lastName" != $2',
-            bindings: ['Test', 'User']
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select `id` from `users` where `firstName` != ? and `lastName` != ?',
-            bindings: ['Test', 'User']
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select "id" from "users" where "firstName" != ? and "lastName" != ?',
-            bindings: ['Test', 'User']
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select "id" from "users" where "firstName" != :1 and "lastName" != :2',
-            bindings: ['Test', 'User']
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select `id` from `users` where `firstName` != ? and `lastName` != ?',
+            dialect: 'firebird',
+            sql: 'select   id from users where firstName != ? and lastName != ?',
             bindings: ['Test', 'User']
           }
         ]
@@ -83,28 +63,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select * from "users" where ("id" != $1 or "id" < $2) or "name" != $3',
-            bindings: ['1', '10', 'Tester']
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select * from `users` where (`id` != ? or `id` < ?) or `name` != ?',
-            bindings: ['1', '10', 'Tester']
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select * from "users" where ("id" != ? or "id" < ?) or "name" != ?',
-            bindings: ['1', '10', 'Tester']
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select * from "users" where ("id" != :1 or "id" < :2) or "name" != :3',
-            bindings: ['1', '10', 'Tester']
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select * from `users` where (`id` != ? or `id` < ?) or `name` != ?',
+            dialect: 'firebird',
+            sql: 'select   * from users where (id != ? or id < ?) or name != ?',
             bindings: ['1', '10', 'Tester']
           }
         ]
@@ -130,28 +90,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select * from "users" where "name" = $1 or ("votes" > $2 and "title" != $3)',
-            bindings: ['John', '100', 'Admin']
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select * from `users` where `name` = ? or (`votes` > ? and `title` != ?)',
-            bindings: ['John', '100', 'Admin']
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select * from "users" where "name" = ? or ("votes" > ? and "title" != ?)',
-            bindings: ['John', '100', 'Admin']
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select * from "users" where "name" = :1 or ("votes" > :2 and "title" != :3)',
-            bindings: ['John', '100', 'Admin']
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select * from `users` where `name` = ? or (`votes` > ? and `title` != ?)',
+            dialect: 'firebird',
+            sql: 'select   * from users where name = ? or (votes > ? and title != ?)',
             bindings: ['John', '100', 'Admin']
           }
         ]
@@ -178,28 +118,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select * from "users" where "name" = $1 and "title" != $2',
-            bindings: ['John', 'Admin']
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select * from `users` where `name` = ? and `title` != ?',
-            bindings: ['John', 'Admin']
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select * from "users" where "name" = ? and "title" != ?',
-            bindings: ['John', 'Admin']
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select * from "users" where "name" = :1 and "title" != :2',
-            bindings: ['John', 'Admin']
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select * from `users` where `name` = ? and `title` != ?',
+            dialect: 'firbird',
+            sql: 'select   * from users where name = ? and title != ?',
             bindings: ['John', 'Admin']
           }
         ]

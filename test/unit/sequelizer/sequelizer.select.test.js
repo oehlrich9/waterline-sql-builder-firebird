@@ -11,7 +11,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "books"');
+      assert.equal(result.sql, 'select   * from books');
     });
 
     it('should generate a query when defined columns are used', function() {
@@ -21,7 +21,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "title", "author", "year" from "books"');
+      assert.equal(result.sql, 'select   title, author, year from books');
     });
   });
 });

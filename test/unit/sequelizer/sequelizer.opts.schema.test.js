@@ -14,7 +14,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "title", "author", "year" from "foo"."books"');
+      assert.equal(result.sql, 'select   title, author, year from foo.books');
     });
   });
 });

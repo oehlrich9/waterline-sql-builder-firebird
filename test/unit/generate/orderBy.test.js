@@ -11,28 +11,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select * from "users" order by "name" desc, "age" asc',
-            bindings: []
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select * from `users` order by `name` desc, `age` asc',
-            bindings: []
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select * from "users" order by "name" desc, "age" asc',
-            bindings: []
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select * from "users" order by "name" desc, "age" asc',
-            bindings: []
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select * from `users` order by `name` desc, `age` asc',
+            dialect: 'firebird',
+            sql: 'select   * from users order by name desc, age asc',
             bindings: []
           }
         ]

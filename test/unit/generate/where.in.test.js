@@ -19,28 +19,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select "name" from "users" where "id" in ($1, $2, $3)',
-            bindings: ['1', '2', '3']
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select `name` from `users` where `id` in (?, ?, ?)',
-            bindings: ['1', '2', '3']
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select "name" from "users" where "id" in (?, ?, ?)',
-            bindings: ['1', '2', '3']
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select "name" from "users" where "id" in (:1, :2, :3)',
-            bindings: ['1', '2', '3']
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select `name` from `users` where `id` in (?, ?, ?)',
+            dialect: 'firebird',
+            sql: 'select   name from users where id in (?, ?, ?)',
             bindings: ['1', '2', '3']
           }
         ]
@@ -69,28 +49,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select "name" from "users" where "id" in ($1, $2, $3) or "id" in ($4, $5, $6)',
-            bindings: ['1', '2', '3', '4', '5', '6']
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select `name` from `users` where `id` in (?, ?, ?) or `id` in (?, ?, ?)',
-            bindings: ['1', '2', '3', '4', '5', '6']
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select "name" from "users" where "id" in (?, ?, ?) or "id" in (?, ?, ?)',
-            bindings: ['1', '2', '3', '4', '5', '6']
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select "name" from "users" where "id" in (:1, :2, :3) or "id" in (:4, :5, :6)',
-            bindings: ['1', '2', '3', '4', '5', '6']
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select `name` from `users` where `id` in (?, ?, ?) or `id` in (?, ?, ?)',
+            dialect: 'firebird',
+            sql: 'select   name from users where id in (?, ?, ?) or id in (?, ?, ?)',
             bindings: ['1', '2', '3', '4', '5', '6']
           }
         ]

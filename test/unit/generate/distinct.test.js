@@ -12,28 +12,8 @@ describe('Query Generation ::', function() {
         },
         outcomes: [
           {
-            dialect: 'postgresql',
-            sql: 'select distinct "firstName", "lastName" from "customers"',
-            bindings: []
-          },
-          {
-            dialect: 'mysql',
-            sql: 'select distinct `firstName`, `lastName` from `customers`',
-            bindings: []
-          },
-          {
-            dialect: 'sqlite3',
-            sql: 'select distinct "firstName", "lastName" from "customers"',
-            bindings: []
-          },
-          {
-            dialect: 'oracle',
-            sql: 'select distinct "firstName", "lastName" from "customers"',
-            bindings: []
-          },
-          {
-            dialect: 'mariadb',
-            sql: 'select distinct `firstName`, `lastName` from `customers`',
+            dialect: 'firebird',
+            sql: 'select   distinct firstName, lastName from customers',
             bindings: []
           }
         ]

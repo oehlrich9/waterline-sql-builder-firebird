@@ -21,7 +21,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select "id" from "users" where "firstName" = $1 and "lastName" = $2');
+      assert.equal(result.sql, 'select   id from users where firstName = ? and lastName = ?');
       assert.deepEqual(result.bindings, ['Test', 'User']);
     });
 
@@ -41,7 +41,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "votes" > $1');
+      assert.equal(result.sql, 'select   * from users where votes > ?');
       assert.deepEqual(result.bindings, ['100']);
     });
 
@@ -66,7 +66,7 @@ describe('Sequelizer ::', function() {
       });
 
       var result = Sequelizer(tree);
-      assert.equal(result.sql, 'select * from "users" where "votes" > $1 and "age" < $2');
+      assert.equal(result.sql, 'select   * from users where votes > ? and age < ?');
       assert.deepEqual(result.bindings, ['100', '50']);
     });
   });
