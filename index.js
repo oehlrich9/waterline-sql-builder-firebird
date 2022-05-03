@@ -18,15 +18,13 @@
 var Knex = require('knex');
 var Utils = require('waterline-utils');
 var Sequelizer = require('./lib/sequelizer');
+const knexFirebirdDialect = require("knex-firebird-dialect").default
 
 module.exports = function sqlBuilder(options) {
-  if (!options.dialect) {
-    throw new Error('Missing Dialect!');
-  }
 
   // Build up a Knex instance to use in the query builder
   var knexInstance = Knex({
-    dialect: options.dialect,
+    dialect: knexFirebirdDialect,
     useNullAsDefault: true
   });
 
